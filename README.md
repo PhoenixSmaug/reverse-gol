@@ -28,7 +28,7 @@ So for $x_{t + 1} = 1$ we get our inequality from before and for $x_{t + 1} = 0$
 
 ### Backwards Direction
 
-Now we encode $x_{t+1} = 1 \impliedby 5 \leq x_t + 2 N \leq 7$ by the contraposition $x_{t+1} = 0 \implies \neg(5 \leq x_t + 2 N \leq 7) \iff x_t + 2 N \leq 4 \text{ or } x_t + 2 N \geq 8$. To encode the 'or', we introduce two auxillary binary variables, $m_t$ and $n_t$.
+Now we encode $x_{t+1} = 1 \impliedby 5 \leq x_t + 2 N \leq 7$ by the contraposition $x_{t+1} = 0 \implies x_t + 2 N \leq 4 \text{ or } x_t + 2 N \geq 8$. To encode the 'or', we introduce two auxillary binary variables, $m_t$ and $n_t$.
 ```math
 x_t + 2 N \geq 8 n_t \quad \quad x_t + 2 N \leq 4 + 13 \cdot (1 - m_t) \quad \quad 1 - x_t \leq m_t + n_t
 ```
