@@ -35,6 +35,21 @@ x_t + 2 N \geq 8 n_t \quad \quad x_t + 2 N \leq 4 + 13 \cdot (1 - m_t) \quad \qu
 If $n_t = 1$, the first inequality ensures $x_t + 2 N \geq 8$ and if $m_t = 1$, the first inequality ensures $x_t + 2 N \leq 4$. And finally, the third inequality ensures that if 
 $x_{t+1} = 0$ then $m_t = 1$ or $n_t = 1$, i.e. $\neg(5 \leq x_t + 2 N \leq 7)$ holds. If $x_{t + 1} = 1$ one can simply choose $n_t = m_t = 0$ and all three inequalities are fulfilled without restricting the values of $x_t$ and $N$.
 
-This concludes the model construction.
+## Additions
+
+This completes the model construction, which is implemented as `modelGOL(width, height, timesteps)`, where width and height specify the bounding box. To ensure that our simulated cells always stay within the bounds, we additionally force all cells on the boundary to be dead for all timesteps.
+
+### Reversed Search
+
+
+
+### Oscillator Optimization
+
+## External Solver Installation
+
+### Google Or-Tools
+
+### Exact
+
 
 (c) Mia Muessig
