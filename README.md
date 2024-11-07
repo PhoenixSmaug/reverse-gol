@@ -148,9 +148,61 @@ X & X & X & . & . & X & . \
 
 ## External Solver Installation
 
+Since their installation can be quite tedious, you will find short installation instructions for the Exact Solver and the Or-Tools for Ubuntu here.
+
 ### Google Or-Tools
+
+Install the required build tools:
+
+```bash
+sudo apt install build-essential lsb-release -y
+sudo snap install cmake --classic
+```
+
+Download the binary [here](https://developers.google.com/optimization/install/cpp/binary_linux), then compile:
+```bash
+mkdir -p or-tools && tar -xzf or-tools_*.tar.gz --strip-components=1 -C or-tools && cd or-tools
+```
+
+```bash
+make test
+sudo cp bin/* /usr/local/bin
+sudo cp -r lib/* /usr/local/lib
+sudo cp -r share/* /usr/local/share
+```
+
+Now finally the CP-SAT solver can be used as:
+```bash
+solve --solver=sat --num_threads=32 --input=test.mps
+```
 
 ### Exact
 
+Install the required build tools:
+
+```bash
+sudo apt-get install build-essential libbz2-dev coinor-libcoinutils-dev libboost-all-dev -y
+```
+
+To compile the solver:
+
+```bash
+git clone https://gitlab.com/nonfiction-software/exact.git && cd exact
+git submodule init && git submodule update
+mkdir soplex_build && cd soplex_build
+cmake ../soplex -DBUILD_TESTING="0" -DSANITIZE_UNDEFINED="0" -DCMAKE_BUILD_TYPE="Release" -DBOOST="0" -DGMP="0" -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS="0" -DZLIB="0"
+make -j 8
+sudo make install
+
+cd ../build_debug && cmake .. -DCMAKE_BUILD_TYPE="Release" -Dsoplex="ON" -Dcoinutils="ON"
+make -j 8
+make install
+```
+
+Now finally the pseudo-Boolean SAT solver can be used as:
+
+```bash
+Exact test.mps
+```
 
 (c) Mia Muessig
