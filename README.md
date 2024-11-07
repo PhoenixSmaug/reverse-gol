@@ -173,7 +173,7 @@ sudo cp -r share/* /usr/local/share
 
 Now finally the CP-SAT solver can be used as:
 ```bash
-solve --solver=sat --num_threads=32 --input=test.mps
+solve --solver=sat --num_threads=16 --input=test.mps --sol_file=test.sol
 ```
 
 ### Exact
