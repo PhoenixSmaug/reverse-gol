@@ -146,7 +146,7 @@ X & X & X & . & . & X & . \
 \end{matrix}
 ```
 
-Using the Cube-and-Conquer SAT solver [treengeling](https://github.com/arminbiere/lingeling), we can also show in just 20 minutes that no period-5 oscillator can exist in a 7x7 bounding box, proving optimality of the [Fumarole](https://conwaylife.com/wiki/Fumarole) 7x8 period-5 oscillator.
+Using the Cube-and-Conquer SAT solver [treengeling](https://github.com/arminbiere/lingeling), we can also show in just 20 minutes that no period-5 oscillator can exist in a 7x7 bounding box, proving optimality of the [Fumarole](https://conwaylife.com/wiki/Fumarole) 7x8 period-5 oscillator. One can additionally prove that no period 5 oscillator with fewer tiles than Fumarole can exist in a 7x8 bounding box in around 2 hours.
 
 ## External Solver Installation
 
